@@ -1,4 +1,5 @@
 const path = require('path') // imports the path module
+const HtmlWebpackPlugin = require('html-webpack-plugin') // imports HtmlWebpackPlugin module
 
 module.exports = {
   entry: { main: './src/index.js' }, // entry point for bundling
@@ -24,4 +25,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [ // list of plugins
+    new HtmlWebpackPlugin({
+      template: './src/index.html', // path to the index.html file
+    }),
+  ],
 }
