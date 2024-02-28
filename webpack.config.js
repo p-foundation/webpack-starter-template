@@ -14,4 +14,14 @@ module.exports = {
     port: 8080, // Port to open the site at localhost:8080, you can always change the port
     open: true, // The site will open automatically when running 'npm run dev'
   },
+  module: {
+    rules: [ // list of rules
+      // Babel rules
+      {
+        test: /\.js$/, // regular expression that matches all js files
+        use: 'babel-loader', // use babel-loader to process js files
+        exclude: '/node_modules/', // exclude the node_modules folder, files in it should not be processed
+      },
+    ],
+  },
 }
