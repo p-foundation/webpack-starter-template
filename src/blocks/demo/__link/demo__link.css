@@ -1,0 +1,8 @@
+.demo__link {
+  color: rgb(28,120,192);
+  transition: opacity .7s ease;
+}
+
+.demo__link:hover {
+  opacity: .7;
+}
