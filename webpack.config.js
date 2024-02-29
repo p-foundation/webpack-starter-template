@@ -34,7 +34,9 @@ module.exports = {
         // use MiniCssExtractPlugin.loader and css-loader to process css files
         use: [MiniCssExtractPlugin.loader, {
           loader: 'css-loader',
-        }],
+          options: { importLoaders: 1 }, // modifies css-loader's behavior when handling @import in CSS files
+        },
+        'postcss-loader'], // applies post-processing with postcss-loader
       },
     ],
   },
