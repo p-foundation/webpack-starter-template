@@ -1,6 +1,7 @@
 const path = require('path') // imports the path module
 const HtmlWebpackPlugin = require('html-webpack-plugin') // imports HtmlWebpackPlugin module
 const { CleanWebpackPlugin } = require('clean-webpack-plugin') // imports HtmlWebpackPlugin plugin
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')  // imports MiniCssExtractPlugin plugin
 
 module.exports = {
   entry: { main: './src/index.js' }, // entry point for bundling
@@ -28,12 +29,20 @@ module.exports = {
         test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/, // regular expression that matches various file types
         type: 'asset/resource', // use 'asset/resource' type for handling these file types
       },
+      {
+        test: /\.css$/, // regular expression that matches all css files
+        // use MiniCssExtractPlugin.loader and css-loader to process css files
+        use: [MiniCssExtractPlugin.loader, {
+          loader: 'css-loader',
+        }],
+      },
     ],
   },
   plugins: [ // list of plugins
     new HtmlWebpackPlugin({
       template: './src/index.html', // path to the index.html file
     }),
-    new CleanWebpackPlugin(), // invoked CleanWebpackPlugin plugin
+    new CleanWebpackPlugin(), // invokes CleanWebpackPlugin plugin
+    new MiniCssExtractPlugin(), // invokes MiniCssExtractPlugin plugin
   ],
 }
