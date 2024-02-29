@@ -26,8 +26,18 @@ module.exports = {
         exclude: '/node_modules/', // exclude the node_modules folder, files in it should not be processed
       },
       {
-        test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/, // regular expression that matches various file types
+        test: /\.(png|svg|jpg|jpeg|gif)$/, // regular expression that matches image file types
         type: 'asset/resource', // use 'asset/resource' type for handling these file types
+        generator: {
+          filename: 'images/[name].[hash][ext]', // define the filename pattern and store them within the /images folder
+        }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i, // regular expression that matches font file types
+        type: 'asset/resource', // use 'asset/resource' type for handling these file types
+        generator: {
+          filename: 'fonts/[name].[hash][ext]', // define the filename pattern and store them within the /fonts folder
+        }
       },
       {
         test: /\.css$/, // regular expression that matches all css files
