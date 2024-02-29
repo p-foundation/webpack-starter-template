@@ -24,6 +24,10 @@ module.exports = {
         use: 'babel-loader', // use babel-loader to process js files
         exclude: '/node_modules/', // exclude the node_modules folder, files in it should not be processed
       },
+      {
+        test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/, // regular expression that matches various file types
+        type: 'asset/resource', // use 'asset/resource' type for handling these file types
+      },
     ],
   },
   plugins: [ // list of plugins
