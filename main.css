@@ -1,0 +1,5 @@
+@font-face{font-display:swap;font-family:Inter;font-style:normal;font-weight:400;src:url(fonts/Inter-Regular.26a30a5f1103393aac70.woff2) format("woff2"),url(fonts/Inter-Regular.e148c4a1158f8cee8285.woff) format("woff")}
+.demo{align-items:center;display:flex;flex-direction:column;font-family:Inter,arial,sans-serif;font-size:calc(8px + 2vmin);justify-content:center;min-height:100vh;text-align:center}
+.demo__logo{height:30vmin}
+.demo__link{color:#1c78c0;transition:opacity .7s ease}.demo__link:hover{opacity:.7}
+
