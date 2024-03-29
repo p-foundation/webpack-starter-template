@@ -7,7 +7,7 @@ module.exports = {
   entry: { main: './src/index.js' }, // entry point for bundling
   output: {
     path: path.resolve(__dirname, 'dist'), // output path using the path utility
-    filename: 'main.js', // sets the output file name
+    filename: '[name].[contenthash].js', // sets the output file name
     publicPath: '', // specify the base path for all assets
   },
   mode: 'development',
@@ -29,14 +29,14 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/, // regular expression that matches image file types
         type: 'asset/resource', // use 'asset/resource' type for handling these file types
         generator: {
-          filename: 'images/[name].[hash][ext]', // define the filename pattern and store them within the /images folder
+          filename: 'images/[name].[contenthash][ext]', // define the filename pattern and store them within the /images folder
         }
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i, // regular expression that matches font file types
         type: 'asset/resource', // use 'asset/resource' type for handling these file types
         generator: {
-          filename: 'fonts/[name].[hash][ext]', // define the filename pattern and store them within the /fonts folder
+          filename: 'fonts/[name].[contenthash][ext]', // define the filename pattern and store them within the /fonts folder
         }
       },
       {
@@ -55,6 +55,8 @@ module.exports = {
       template: './src/index.html', // path to the index.html file
     }),
     new CleanWebpackPlugin(), // invokes CleanWebpackPlugin plugin
-    new MiniCssExtractPlugin(), // invokes MiniCssExtractPlugin plugin
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css',
+    }), // invokes MiniCssExtractPlugin plugin
   ],
 }
